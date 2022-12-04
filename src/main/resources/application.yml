@@ -20,6 +20,6 @@ mybatis-plus:
       id-type: auto
 # 文件相关参数
 file:
-  path: D:\tmp\file
+  path: ./tmp/file
   # 20 * 1024 * 1024
   chunk-size: 20971520
