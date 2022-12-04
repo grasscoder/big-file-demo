@@ -4,8 +4,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import sun.misc.BASE64Encoder;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.File;
@@ -13,6 +11,8 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.util.Base64;
 
 /**
  * 文件相关的处理
@@ -73,8 +73,12 @@ public class BulkFileUtil {
             filename = URLEncoder.encode(filename, "utf-8");
         } else if (agent.contains("Firefox")) {
             // 火狐浏览器
-            BASE64Encoder base64Encoder = new BASE64Encoder();
-            filename = "=?utf-8?B?" + base64Encoder.encode(filename.getBytes("utf-8")) + "?=";
+            //从JKD 9开始rt.jar包已废除，BASE64Encoder在jdk9以上就删除了
+            // 从JDK 1.8开始，就提供了java.util.Base64.Decoder和java.util.Base64.Encoder的JDK公共API，
+            // 可代替sun.misc.BASE64Decoder和sun.misc.BASE64Encoder的JDK内部API。
+           // BASE64Encoder base64Encoder = new BASE64Encoder();
+            Base64.Encoder base64Encoder = Base64.getEncoder();
+            filename = "=?utf-8?B?" + base64Encoder.encode(filename.getBytes(StandardCharsets.UTF_8)) + "?=";
         } else {
             // 其它浏览器
             filename = URLEncoder.encode(filename, "utf-8");

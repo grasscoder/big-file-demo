@@ -79,7 +79,7 @@ public class FileStorageServiceImpl extends ServiceImpl<FileStorageMapper, FileS
             File toFile = new File(baseFileSavePath + File.separator + file.getFilePath());
             try {
                 BulkFileUtil.downloadFile(request, response, toFile);
-            } catch(UnsupportedEncodingException e) {
+            } catch (UnsupportedEncodingException e) {
 
             }
         } else {
@@ -116,7 +116,10 @@ public class FileStorageServiceImpl extends ServiceImpl<FileStorageMapper, FileS
     @SneakyThrows
     private Boolean uploadSingleFile(String fullFileName, FileChunkDto dto) {
         File localPath = new File(fullFileName);
-        dto.getFile().transferTo(localPath);
+        try {
+            dto.getFile().transferTo(localPath);
+        } catch (IOException | IllegalStateException e) {
+        }
         return Boolean.TRUE;
     }
 
