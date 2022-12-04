@@ -21,5 +21,29 @@ public class CheckResultVo {
     private String url;
 
     private List<Integer> uploadedChunks;
+
+    public Boolean getUploaded() {
+        return uploaded;
+    }
+
+    public void setUploaded(Boolean uploaded) {
+        this.uploaded = uploaded;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public List<Integer> getUploadedChunks() {
+        return uploadedChunks;
+    }
+
+    public void setUploadedChunks(List<Integer> uploadedChunks) {
+        this.uploadedChunks = uploadedChunks;
+    }
 }
 

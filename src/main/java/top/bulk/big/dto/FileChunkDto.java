@@ -51,4 +51,76 @@ public class FileChunkDto {
      * 文件
      */
     private MultipartFile file;
+
+    public Integer getChunkNumber() {
+        return chunkNumber;
+    }
+
+    public void setChunkNumber(Integer chunkNumber) {
+        this.chunkNumber = chunkNumber;
+    }
+
+    public Integer getTotalChunks() {
+        return totalChunks;
+    }
+
+    public void setTotalChunks(Integer totalChunks) {
+        this.totalChunks = totalChunks;
+    }
+
+    public Long getChunkSize() {
+        return chunkSize;
+    }
+
+    public void setChunkSize(Long chunkSize) {
+        this.chunkSize = chunkSize;
+    }
+
+    public Long getCurrentChunkSize() {
+        return currentChunkSize;
+    }
+
+    public void setCurrentChunkSize(Long currentChunkSize) {
+        this.currentChunkSize = currentChunkSize;
+    }
+
+    public Long getTotalSize() {
+        return totalSize;
+    }
+
+    public void setTotalSize(Long totalSize) {
+        this.totalSize = totalSize;
+    }
+
+    public String getIdentifier() {
+        return identifier;
+    }
+
+    public void setIdentifier(String identifier) {
+        this.identifier = identifier;
+    }
+
+    public String getFilename() {
+        return filename;
+    }
+
+    public void setFilename(String filename) {
+        this.filename = filename;
+    }
+
+    public String getRelativePath() {
+        return relativePath;
+    }
+
+    public void setRelativePath(String relativePath) {
+        this.relativePath = relativePath;
+    }
+
+    public MultipartFile getFile() {
+        return file;
+    }
+
+    public void setFile(MultipartFile file) {
+        this.file = file;
+    }
 }

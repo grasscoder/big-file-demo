@@ -2,6 +2,8 @@ package top.bulk.big.util;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.tomcat.util.http.fileupload.IOUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import sun.misc.BASE64Encoder;
 
 import javax.servlet.http.HttpServletRequest;
@@ -21,6 +23,7 @@ import java.net.URLEncoder;
  */
 @Slf4j
 public class BulkFileUtil {
+    private static final Logger log= LoggerFactory.getLogger(BulkFileUtil.class);
     /**
      * 文件下载
      * @param request

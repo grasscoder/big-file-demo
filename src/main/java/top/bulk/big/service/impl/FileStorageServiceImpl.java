@@ -23,6 +23,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;
+import java.io.UnsupportedEncodingException;
 
 /**
  * 文件存储表(FileStorage)表服务实现类
@@ -76,7 +77,11 @@ public class FileStorageServiceImpl extends ServiceImpl<FileStorageMapper, FileS
                 .eq(FileStorage::getIdentifier, identifier));
         if (BeanUtil.isNotEmpty(file)) {
             File toFile = new File(baseFileSavePath + File.separator + file.getFilePath());
-            BulkFileUtil.downloadFile(request, response, toFile);
+            try {
+                BulkFileUtil.downloadFile(request, response, toFile);
+            } catch(UnsupportedEncodingException e) {
+
+            }
         } else {
             throw new RuntimeException("文件不存在");
         }
