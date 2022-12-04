@@ -15,7 +15,7 @@ import java.net.URLEncoder;
 /**
  * 文件相关的处理
  *
- * @author 散装java
+ * @author huql
  * @version 1.0.0
  * @date 2022-11-20
  */

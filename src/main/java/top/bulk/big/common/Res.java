@@ -3,7 +3,7 @@ package top.bulk.big.common;
 /**
  * 生成返回结果的工具类
  *
- * @author 散装java
+ * @author huql
  * @date 2022-06-29
  */
 public class Res  {
